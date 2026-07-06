@@ -1,0 +1,39 @@
+version: "3.9"
+
+services:
+  db:
+    image: ankane/pgvector:latest   # Postgres with pgvector extension pre-installed
+    container_name: documind_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: documind_user
+      POSTGRES_PASSWORD: documind_pass
+      POSTGRES_DB: documind_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U documind_user -d documind_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build: ./backend
+    container_name: documind_backend
+    restart: unless-stopped
+    env_file:
+      - ./backend/.env
+    environment:
+      DATABASE_URL: postgresql://documind_user:documind_pass@db:5432/documind_db
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./backend:/app
+
+volumes:
+  postgres_data:
