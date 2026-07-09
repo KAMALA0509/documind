@@ -1,14 +1,5 @@
 # Knowledge Gap Log — DocuMind Week
 
-Update this file every time you hit something unfamiliar. One line per gap is fine — expand later when you write the end-of-week summary.
-
-## Format
-- **Gap:** what you didn't know
-- **Where:** which part of the project surfaced it
-- **Resolution:** what you learned / did about it
-
----
-
 ## Day 1
 - **Gap:** Didn't know FastAPI returns 404 for undefined routes by default (no automatic "welcome" root page)
 - **Where:** Testing http://127.0.0.1:8000/ in browser after first run
