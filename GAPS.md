@@ -15,15 +15,4 @@
 
 ---
 
-## Pre-identified gaps (before starting, based on stack for this project)
-- **Gap:** How vector similarity search actually works under the hood (cosine similarity vs L2 distance vs inner product)
-- **Where:** Will hit this in Day 2 (pgvector setup)
-- **Resolution:** _(pending)_
 
-- **Gap:** Chunking strategy for documents (fixed-size vs semantic chunking) and why chunk size affects retrieval quality
-- **Where:** Day 2 ingestion pipeline
-- **Resolution:** _(pending)_
-
-- **Gap:** How to structure a prompt so the LLM answers *only* from retrieved context (prompt grounding / anti-hallucination technique)
-- **Where:** Day 3 LLM service
-- **Resolution:** _(pending)_
