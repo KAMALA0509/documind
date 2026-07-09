@@ -1,11 +1,6 @@
 """
-Extracts raw text from an uploaded PDF's bytes.
-
-Why pypdf and not something heavier (e.g. OCR-based tools): most PDFs are
-text-based (not scanned images), so a straightforward text extraction
-library is sufficient and fast. If you later need to handle scanned PDFs,
-that's a separate OCR step (pytesseract) — worth noting as a limitation,
-not solving here.
+Uses `pypdf` because it is lightweight and sufficient for text-based PDFs.
+OCR support is intentionally excluded from the current implementation.
 """
 import io
 import logging
