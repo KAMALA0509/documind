@@ -1,8 +1,8 @@
 """
-Pydantic schemas define what goes over the wire — separate from the
-SQLAlchemy models, which define what's in the database. Keeping them
-separate means we control exactly what's exposed in the API (e.g. we never
-want to accidentally serialize a raw embedding vector back to the client).
+Defines request and response schemas for the API.
+Separating Pydantic schemas from SQLAlchemy models keeps the API contract
+independent of the database model and prevents internal fields (e.g.,
+embedding vectors) from being exposed to clients.
 """
 from datetime import datetime
 
